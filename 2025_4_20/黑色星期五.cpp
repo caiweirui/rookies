@@ -1,0 +1,112 @@
+#include<stdio.h>
+main()
+{
+	int yue[12];
+	int n,y,r,x,d,rns,xy,dy,d2,yu,count=0;   //2000 年1 月1 日是星期6
+	scanf("%d",&n);
+	rns=(int)(n-2000)/4;
+	for(y=1,r=13,yu=0;y<=12;y++)
+	{
+		if(y%2==0)
+	{
+		xy=y/2;
+		if(n%400==0||(n%4==0&&n%100!=0))
+		{
+			if(y<=6)
+			{
+				if(xy==1)
+			    {
+			    	d=365*(n-2000-rns)+366*rns+31+r-1;
+			    }
+			    else
+			    {
+				    d=365*(n-2000-rns)+366*rns+31*xy+29+30*(xy-2)+r-1;
+			    }
+			}
+			else
+			{
+				d=365*(n-2000-rns)+366*rns+213+(xy-4)*61+r-1;
+			}
+		}
+		else
+		{
+			if(y<=6)
+			{
+				if(xy==1)
+			    {
+				    d=365*(n-2000-rns)+366*(rns)+31+r;
+			    }
+			    else
+		    	{
+				    d=365*(n-2000-rns)+366*(rns)+31*xy+28+30*(xy-2)+r;
+			    }
+			}
+			else
+			{
+				d=365*(n-2000-rns)+366*(rns)+212+(xy-4)*61+r;
+			}
+		}
+	}
+	else
+	{
+		dy=(y+1)/2;
+		if(n%400==0||(n%4==0&&n%100!=0))
+		{
+			if(y<=7)
+			{
+				if(dy==1)
+			    {
+			    	d=365*(n-2000-rns+1)+366*(rns-1)+r;
+		    	}
+		 	    else
+			    {
+			    	d=365*(n-2000-rns+1)+366*(rns-1)+31*(dy-1)+29+30*(xy-2)+r;
+		     	}
+			}
+			else
+			{
+				d=365*(n-2000-rns+1)+366*(rns-1)+213+(dy-4)*31+(dy-5)*30+r;
+			}
+		}
+		else
+		{
+			if(y<=7)
+			{
+				if(dy==1)
+		    	{
+				    d=365*(n-2000-rns)+366*(rns)+r;
+			    }
+			    else
+		    	{
+			    	d=365*(n-2000-rns)+366*(rns)+31*(dy-1)+28+30*(dy-2)+r;
+		    	}
+			}
+			else
+			{
+				d=365*(n-2000-rns)+366*(rns)+212+(dy-4)*31+(dy-5)*30+r;
+			}
+		}
+	}
+	if((d+6)%7==5)
+	{
+		count++;
+		yue[yu]=y;
+		yu++;
+	}
+	}
+	if(count==1)
+	{
+		printf("There is %d Black Friday in year %d.\n",count,n);
+		printf("It is:\n");
+		printf("%d/%d/13\n",n,yue[0]);
+	}
+	else
+	{
+	    printf("There are %d Black Fridays in year %d.\n",count,n);
+		printf("They are:\n");
+		for(yu=0;yu<count;yu++)
+	    {    
+		    printf("%d/%d/13\n",n,yue[yu]);
+	    }
+	}
+}

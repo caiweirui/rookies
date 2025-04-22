@@ -1,0 +1,79 @@
+#include<stdio.h>
+main()
+{
+	int n,i,j,t,k,v,m;
+	int a[50];
+	scanf("%d",&n);
+	for(t=0;t<n;t++)
+	{
+		a[t]=t+1;//a[0]=1;a[1]=2;a[2]=3;...
+	}
+	i=1;
+	j=1;
+	while(j<=2*(n-1))
+	{
+		printf(" ");
+		j++;
+	}
+	printf("%-2d\n",n);
+	i=2;
+	while(i<=n)
+	{
+		j=i;
+		while(j<(2*n-i))
+		{
+			printf(" ");
+			j++;
+		}
+		k=n-1;
+		while(k>=n-i)
+		{
+			printf("%-2d",a[k]);
+			k--;
+		}
+
+			v=a[k+1];
+			while(v<n)
+			{
+				printf("%-2d",v+1);
+				v++;
+			}
+		printf("\n");
+		i++;
+	}
+	i=2;
+	while(i<n)
+	{
+		j=1;
+		while(j<i)
+		{
+			printf("  ");
+			j++;
+		}
+		k=n;
+		while(k>=i)
+		{
+			printf("%-2d",k);
+			k--;
+		}
+		m=a[k+1];
+		while(m<=n)
+		{
+			printf("%-2d",m);
+			m++;
+		}
+		printf("\n");
+		i++;
+	}
+	if(n!=1)
+	{
+	i=1;
+	j=1;
+	while(j<=2*(n-1))
+	{
+		printf(" ");
+		j++;
+	}
+	printf("%-2d\n",n);
+	}
+}

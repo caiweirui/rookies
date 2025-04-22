@@ -1,0 +1,42 @@
+#include<stdio.h>
+main()
+{
+	int a,b,c,d,e,f,g,h,i,j,x,y,temp;
+	int s[10],max;
+	scanf("%d,%d,%d,%d,%d,%d,%d,%d,%d\n",&a,&b,&c,&d,&e,&f,&g,&h,&i);
+	scanf("%d",&j);
+	s[0]=a;
+	s[1]=b;
+	s[2]=c;
+	s[3]=d;
+	s[4]=e;
+	s[5]=f;
+	s[6]=g;
+	s[7]=h;
+	s[8]=i;
+	s[9]=j;
+	for(x=0;x<10;x++)
+	{
+		for(y=0;y<10;y++)
+		{
+			if(s[y]>s[y+1])
+			{
+				temp=s[y];
+				s[y]=s[y+1];
+				s[y+1]=temp;
+			}
+		}
+	}
+	for(x=0;x<10;x++)
+	{
+		printf("%d",s[x+1]);
+		if(x<9)
+		{
+			printf(",");
+		}
+		else
+		{
+			printf("\n");
+		}
+	}
+}

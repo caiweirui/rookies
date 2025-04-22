@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+	int n,b[100][100];
+	int i,j,k=0,t=1,m;
+	scanf("%d",&n);
+    for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			if(i+j>=n)
+			{
+				k=2*n-i-j-1;
+					if((k)%2==0)
+			{
+				b[i][j]=n*n-((k)*(k+1)/2+j-1)+n-1;
+			}
+			else
+			{
+				b[i][j]=n*n-((k)*(k+1)/2+i-1)+n-1;
+			}
+			}
+			else
+			{
+				k=i+j;
+				if((k)%2==0)
+			{
+				b[i][j]=(k)*(k+1)/2+j+1;
+			}
+			else
+			{
+				b[i][j]=(k)*(k+1)/2+i+1;
+			}
+			}
+			
+		}
+	}
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			if(j==0)
+			{
+				printf("%2d",b[i][j]);
+			}
+			else
+			{
+				printf("%3d",b[i][j]);
+			}
+		}
+		printf("\n");
+	}
+}
