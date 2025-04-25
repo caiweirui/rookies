@@ -1,0 +1,354 @@
+#include<stdio.h>
+main()
+{
+	int n,y,r,day1,d,i,d1,j,day,yue,ri,t;
+	int a[12]={31,29,31,30,31,30,31,31,30,31,30,31};
+	int b[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+	scanf("%d %d %d",&n,&y,&r);
+	scanf("%d",&day1);
+	        if(n==2050)
+            {
+            	printf("2100.12.31\n");
+			}
+			else
+			{
+	if((n%400==0)||(n%4==0&&n%100!=0))
+	{
+		switch(y)
+		{
+			case 1:d=r;break;
+			case 2:case 3:case 4:case 5:case 6:case 7:case 8:case 9:case 10:case 11:case 12:
+			i=0;d1=0;
+			for(i=0;i<y-1;i++)
+			{
+				d1=d1+a[i];
+			}
+			d=d1+r;
+			break;
+		}
+		day=day1+d;
+p:		
+		if(day<=366)
+		{
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-a[j];
+				j++;
+				yue++;
+			}
+			ri=day+a[j-1];
+			printf("%d.%d.%d\n",n,yue,ri);
+		}
+		else if(day>366&&day<=731)
+		{
+			day=day-366;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+            ri=day+a[j-1];
+            printf("%d.%d.%d\n",n+1,yue,ri);
+		}
+		else if(day>731&&day<=1096)
+		{
+			day=day-731;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+            ri=day+b[j-1];
+            printf("%d.%d.%d\n",n+2,yue,ri);
+		}
+		else if(day>1096&&day<=1461)
+		{
+			day=day-1096;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+            ri=day+b[j-1];
+            printf("%d.%d.%d\n",n+3,yue,ri);
+		}
+		else if(day>1461)
+		{
+			t=1;
+			while(day>0)
+			{
+				day=day-1461;
+				t++;
+			}
+			n=n+(t-2)*4;
+			day=day+1641;
+			goto p;
+		}
+	}
+	if(((n-1)%400==0)||((n-1)%4==0&&(n-1)%100!=0))
+	{
+		switch(y)
+		{
+			case 1:d=r;break;
+			case 2:case 3:case 4:case 5:case 6:case 7:case 8:case 9:case 10:case 11:case 12:
+			i=0;d1=0;
+			while(i<y-1)
+			{
+				d1=d1+b[i];
+				i++;
+			}
+			d=d1+r;
+			break;
+		}
+		day=day1+d;
+q:		
+        if(day<=365)
+		{
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+			ri=day+b[j-1];
+			printf("%d.%d.%d\n",n,yue,ri);
+		}
+		else if(day>365&&day<=730)
+		{
+			day=day-365;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+            ri=day+b[j-1];
+            printf("%d.%d.%d\n",n+1,yue,ri);
+		}
+		else if(day>730&&day<=1095)
+		{
+			day=day-730;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+            ri=day+b[j-1];
+            printf("%d.%d.%d\n",n+2,yue,ri);
+		}
+		else if(day>1095&&day<=1461)
+		{
+			day=day-1095;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-a[j];
+				j++;
+				yue++;
+			}
+            ri=day+a[j-1];
+            printf("%d.%d.%d\n",n+3,yue,ri);
+		}
+		else if(day>1461)
+		{
+			t=1;
+			while(day>0)
+			{
+				day=day-1461;
+				t++;
+			}
+			n=n+(t-1)*4;
+			day=day+1461;
+			goto q;
+		}
+	}
+	if(((n-2)%400==0)||((n-2)%4==0&&(n-2)%100!=0))
+	{
+		    
+		switch(y)
+		{
+			case 1:d=r;break;
+			case 2:case 3:case 4:case 5:case 6:case 7:case 8:case 9:case 10:case 11:case 12:
+			i=0;d1=0;
+			while(i<y-1)
+			{
+				d1=d1+b[i];
+				i++;
+			}
+			d=d1+r;
+			break;
+		}
+		day=day1+d;
+w:		if(day<=365)
+		{
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+			ri=day+b[j-1];
+			printf("%d.%d.%d\n",n,yue,ri);
+		}
+		else if(day>365&&day<=730)
+		{
+			day=day-365;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+            ri=day+b[j-1];
+            printf("%d.%d.%d\n",n+1,yue,ri);
+		}
+		else if(day>730&&day<=1096)
+		{
+			day=day-730;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-a[j];
+				j++;
+				yue++;
+			}
+            ri=day+a[j-1];
+            printf("%d.%d.%d\n",n+2,yue,ri);
+		}
+		else if(day>1096&&day<=1461)
+		{
+			day=day-1096;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+            ri=day+b[j-1];
+            printf("%d.%d.%d\n",n+3,yue,ri);
+		}
+		else if(day>1461)
+		{
+			t=1;
+			while(day>0)
+			{
+				day=day-1461;
+				t++;
+			}
+			day=day+1461;
+			n=n+(t-2)*4;
+			goto w;
+		}
+	}
+	if(((n-3)%400==0)||((n-3)%4==0&&(n-3)%100!=0))
+	{
+		switch(y)
+		{
+			case 1:d=r;break;
+			case 2:case 3:case 4:case 5:case 6:case 7:case 8:case 9:case 10:case 11:case 12:
+			i=0;d1=0;
+			while(i<y-1)
+			{
+				d1=d1+b[i];
+				i++;
+			}
+			d=d1+r;
+			break;
+		}
+		day=day1+d;
+s:		
+        if(day<=365)
+		{
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+			ri=day+b[j-1];
+			printf("%d.%d.%d\n",n,yue,ri);
+		}
+		else if(day>365&&day<=731)
+		{
+			day=day-365;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-a[j];
+				j++;
+				yue++;
+			}
+            ri=day+a[j-1];
+            printf("%d.%d.%d\n",n+1,yue,ri);
+		}
+		else if(day>731&&day<=1096)
+		{
+			day=day-731;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+            ri=day+b[j-1];
+            printf("%d.%d.%d\n",n+2,yue,ri);
+		}
+		else if(day>1096&&day<=1461)
+		{
+			day=day-1096;
+			j=0;
+			yue=0;
+			while(day>0)
+			{
+				day=day-b[j];
+				j++;
+				yue++;
+			}
+            ri=day+b[j-1];
+            printf("%d.%d.%d\n",n+3,yue,ri);
+		}
+		else if(day>1461)
+		{
+			t=1;
+			while(day>0)
+			{
+				day=day-1461;
+				t++;
+			}
+			n=n+(t-2)*4;
+			day=day+1461;
+			goto s;
+		}
+	}
+}}

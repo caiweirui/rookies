@@ -1,0 +1,32 @@
+#include<stdio.h>
+main()
+{
+	int n,flag=1,i,j;
+	int a[100];
+	scanf("%d",&n);
+	a[0]=n;
+	for(i=0;flag==1;i++)
+	{
+		if(n%2==0)
+		{
+			n=n/2;
+			a[i+1]=n;
+		}
+		else
+		{
+			n=n*3+1;
+			a[i+1]=n;
+		}
+		if(n==1)
+		{
+			flag=0;
+		}
+	}
+	printf("%d",a[0]);
+	for(j=0;j<i;j++)
+	{
+		printf(",%d",a[j+1]);
+	}
+	printf("\n");
+	printf("step=%d\n",i+1);
+}

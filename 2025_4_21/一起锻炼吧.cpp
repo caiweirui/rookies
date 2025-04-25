@@ -1,0 +1,22 @@
+#include<stdio.h>
+main()
+{
+	int a,b,c,n,count=0;
+	scanf("%d",&c);	
+	    a=1;
+		b=1;
+		while((a*a+b*b)<=c*c)
+	    {
+		    while(a<=b)
+		    {
+		        if((a*a+b*b)==c*c&&a<=b)
+		        {
+			        count=1;
+		        }
+		        a++;
+		    }
+		    a=1;
+		    b++;
+        }
+	printf("%d\n",count);
+}

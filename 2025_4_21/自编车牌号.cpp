@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<string.h>
+main()
+{
+	char a[5],count=0,flag1=0,flag2=0,flag3=1;
+	int i,j;
+	for(i=0;i<5;i++)
+	{
+		scanf("%c",&a[i]);
+	}
+	if((a[4]-'0')>9||(a[4]-'0')<0)
+	{
+		printf("no.\n");
+	}
+	else
+	{
+		for(j=0;j<5;j++)
+		{
+			if(a[j]==73||a[j]==79)
+		    {
+			    flag3=0;
+	    	}
+		}
+	    for(j=0;j<4;j++)
+    	{
+		    if(a[j]>=65&&a[j]<=91)
+		    {
+		    	count++;
+		    }
+    	}
+		if(count==2)
+	    {
+		    flag2=1;
+    	}
+	    if(flag2&&flag3)
+	    {
+	    	printf("ok.\n");
+	    }
+	    else
+    	{
+	    	printf("no.\n");
+	    }
+	}
+}
